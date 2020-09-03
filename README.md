@@ -19,7 +19,7 @@
 #### Create docker service from the image we created in this sample project.
 - docker service create --replicas 3 -p 5004:5000 --name flaskservice lordrevolta/dockerflask:1
     - Takes a lot of time. It will look like it's stuck
-- Open \<manager\> ip:5004
+- Open \<manager ip\>:5004
     - Refresh multiple times and random numbers will appear starting from 1. This means requests are split between the workers(or containers to be precise.)
     - If we scale up you will see the counters at the same position for containers that already exist but the new containers that are created because of scaling up start from 1 as expected.
     
