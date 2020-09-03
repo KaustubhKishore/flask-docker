@@ -19,12 +19,12 @@
 #### Create docker service from the image we created in this sample project.
 - docker service create --replicas 3 -p 5004:5000 --name flaskservice lordrevolta/dockerflask:1
     - Takes a lot of time. It will look like it's stuck
-- Open <manager ip>:5004
+- Open \<manager\> ip:5004
     - Refresh multiple times and random numbers will appear starting from 1. This means requests are split between the workers(or containers to be precise.)
     
     
 ### Notes (IGNORE THESE)
 ##### Upload a docker image on docker hub
 - docker login
-- docker tag <image id> <dockerhub username>/imagename:tag
-- docker push <dockerhub username>/imagename:tag
+- docker tag \<image id\> \<dockerhub username\>/imagename:tag
+- docker push \<dockerhub username\>/imagename:tag
