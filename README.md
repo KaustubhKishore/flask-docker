@@ -7,7 +7,7 @@
 > localhost:5001 on browser
 
 
-## Deploy on docker machine
+## Deploy on docker swarm
 > docker-machine create --driver virtualbox manager
 >
 > docker-machine create --driver virtualbox worker1
