@@ -6,7 +6,7 @@
 >
 > localhost:5001 on browser
 
-**Alternatively just use docker pull `lordrevolta/dockerflask:ip`**
+**Alternatively just use `docker pull lordrevolta/dockerflask:ip`**
 
 
 
