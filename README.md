@@ -1,10 +1,13 @@
 # flask-docker
 
-> docker build --tag dockerflask:1 . 
+> docker build --tag dockerflask:ip . 
 >
-> docker run -d -p 5001:5000 dockerflask:1
+> docker run -d -p 5001:5000 dockerflask:ip
 >
 > localhost:5001 on browser
+
+**Alternatively just use docker pull `lordrevolta/dockerflask:ip`**
+
 
 
 ## Deploy on docker swarm
@@ -14,10 +17,12 @@
 >
 > docker-machine create --driver virtualbox worker2
 
-*Note: A registry is required to create a service with custom image. We can either use a docker registry container or just upload it on docker hub*
+Follow swarm init steps after creating these machines.
+
+**Note: A registry is required to create a service with custom image. We can either use a docker registry container or just upload it on docker hub**
 
 #### Create docker service from the image we created in this sample project.
-- docker service create --replicas 3 -p 5004:5000 --name flaskservice lordrevolta/dockerflask:1
+- docker service create --replicas 3 -p 5004:5000 --name flaskservice lordrevolta/dockerflask:ip
     - Takes a lot of time. It will look like it's stuck
 - Open \<manager ip\>:5004
     - Refresh multiple times and random numbers will appear starting from 1. This means requests are split between the workers(or containers to be precise.)
