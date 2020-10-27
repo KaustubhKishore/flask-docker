@@ -12,5 +12,33 @@
     
     <h5>Deployed on server test #2</h5>
 
+    <form method="POST" action="/">
+        <input type="text" name="title">
+        <input type="submit" value="Add">
+      </form>
+
+    <table>
+        {% for book in allbooks %}
+          <tr>
+            <td>
+              {{book.title}}
+            </td>
+            <td>
+              <form method="POST" action="./update" style="display: inline">
+                <input type="hidden" value="{{book.title}}" name="oldtitle">
+                <input type="text" value="{{book.title}}" name="newtitle">
+                <input type="submit" value="Update">
+              </form>
+            </td>
+            <td>
+              <form method="POST" action="./delete" style="display: inline">
+                <input type="hidden" value="{{book.title}}" name="title">
+                <input type="submit" value="Delete">
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+
 </body>
 </html>
