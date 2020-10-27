@@ -26,11 +26,19 @@ class Book(db.Model):
 
 
 var = 0
+pagehits = 0
+visitors = list()
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    global var
+    global var, pagehits, visitors
+    # if(request.remote_addr not in visitors):
+        # var += 1
+        # visitors.append(request.remote_addr)
+    # else:
+        # pagehits += 1
     var += 1
+    pagehits +=1
 
     books = None
     if request.form:
@@ -44,7 +52,7 @@ def index():
     books = Book.query.all()
 
 
-    return render_template('index.html',value = var, cont = cmd_out, allbooks = books)
+    return render_template('index.html',value = var, cont = cmd_out, allbooks = books, pagec =pagehits)
 
 @app.route("/update", methods=["POST"])
 def update():
