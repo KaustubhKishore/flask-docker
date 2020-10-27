@@ -32,13 +32,14 @@ visitors = list()
 @app.route('/', methods=["GET", "POST"])
 def index():
     global var, pagehits, visitors
-    # if(request.remote_addr not in visitors):
-        # var += 1
-        # visitors.append(request.remote_addr)
-    # else:
-        # pagehits += 1
-    var += 1
-    pagehits +=1
+    if(request.remote_addr not in visitors):
+        var += 1
+        pagehits += 1
+        visitors.append(request.remote_addr)
+    else:
+        pagehits += 1
+    # var += 1
+    # pagehits +=1
 
     books = None
     if request.form:
