@@ -48,7 +48,6 @@ def index():
             db.session.add(book)
             db.session.commit()
         except Exception as e:
-            print("Failed to add book")
             print(e)
     books = Book.query.all()
 
@@ -64,7 +63,6 @@ def update():
         book.title = newtitle
         db.session.commit()
     except Exception as e:
-        print("Couldn't update book title")
         print(e)
     return redirect("/")
 
